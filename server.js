@@ -13,7 +13,7 @@ const app = express()
 const uri = `mongodb+srv://jerrob:${password}@cluster0.8wbf1.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-
+const hostname = '0.0.0.0'
 const port = 3001
 app.use(cors('*')) 
 app.use(express.json())
@@ -34,8 +34,8 @@ app.post('/', async (req, res) => {
 
 
 })
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(port, hostname, () => {
+  console.log(`Example app listening on ${hostname} on port ${port}`)
 })
 
 /* const hostname = '127.0.0.1';
