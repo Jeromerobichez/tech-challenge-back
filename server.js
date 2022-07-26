@@ -14,7 +14,7 @@ const uri = `mongodb+srv://jerrob:${password}@cluster0.8wbf1.mongodb.net/?retryW
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 const hostname = process.env.HOSTNAME
-const PORT = process.env.PORT
+const PORT = 3001
 app.use(cors('*')) 
 app.use(express.json())
 
