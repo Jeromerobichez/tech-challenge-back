@@ -22,10 +22,9 @@ app.use(cors('*'))
 app.use(express.json())
 
 
-  app.get('/', async(req, res) => {
-    let crewList = await getCrewList()
-    res.send(crewList) 
-
+app.get('/', async(req, res) => {
+  let crewList = await getCrewList()
+  res.send(crewList) 
   })
 app.post('/', async (req, res) => { 
     let crew = []
@@ -33,20 +32,4 @@ app.post('/', async (req, res) => {
     crew = await getCrewList()
     res.set('Access-Control-Allow-Origin', '*')
     res.send(crew) 
-    
-
-
 })
-
-/* const hostname = '127.0.0.1';
-const port = 3001;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello toto');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-}); */
