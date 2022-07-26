@@ -14,7 +14,7 @@ const uri = `mongodb+srv://jerrob:${password}@cluster0.8wbf1.mongodb.net/?retryW
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 const hostname = process.env.HOSTNAME
-const port = process.env.PORT
+const PORT = process.env.PORT
 app.use(cors('*')) 
 app.use(express.json())
 
@@ -35,7 +35,7 @@ app.post('/', async (req, res) => {
 
 })
 app.listen(port, hostname, () => {
-  console.log(`Example app listening on ${hostname} on port ${port}`)
+  console.log(`Example app listening on ${hostname} on port ${PORT}`)
 })
 
 /* const hostname = '127.0.0.1';
