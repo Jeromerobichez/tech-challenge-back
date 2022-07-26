@@ -18,22 +18,16 @@ const port = 3001
 app.use(cors('*')) 
 app.use(express.json())
 
-let crew = ['Eleftheria', 'Gennadios', 'Lysimachos', 'jean-mi']
-let newCrewMember = ''
-/* app.get('/', (req, res) => {
-    res.send(crew)
-  }) */
+
   app.get('/', async(req, res) => {
     let crewList = await getCrewList()
     res.send(crewList) 
 
   })
 app.post('/', async (req, res) => { 
-    newCrewMember = "salut"
-    console.log("req.body", req.body)
+    let crew = []
     await insertCrewMember(req.body)
     crew = await getCrewList()
-    console.log("crew", crew)
     res.set('Access-Control-Allow-Origin', '*')
     res.send(crew) 
     
